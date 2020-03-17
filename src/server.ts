@@ -20,9 +20,9 @@ export class Server {
     
     constructor() {
         this.initialize();
-        this.configureApp();
+        
         this.handleRoutes();
-        this.handleSocketConnection();
+        
       }
       private configureApp(): void {
         this.app.use(express.static(path.join(__dirname, "../public")));
@@ -32,6 +32,8 @@ export class Server {
         this.app = express();
         this.httpServer = createServer(this.app);
         this.io = socketIO(this.httpServer);
+        this.configureApp();
+        this.handleSocketConnection();
       }
       
       private handleRoutes(): void {
