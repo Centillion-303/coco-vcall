@@ -1,7 +1,7 @@
 {
   "name": "coco-vcall",
   "version": "1.0.0",
-  "description": "",
+  "description": "we don't even know",
   "main": "index.js",
   "scripts": {
     "start": "ts-node src/index.ts",
