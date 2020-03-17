@@ -9,6 +9,7 @@ import { Application } from "express";
 import * as socketIO from 'socket.io'
 import { Server as SocketIOServer } from "socket.io";
 import { createServer, Server as HTTPServer } from "http";
+const path = require('path') ;
 
 export class Server {
     private httpServer: HTTPServer;
@@ -19,9 +20,12 @@ export class Server {
     
     constructor() {
         this.initialize();
-      
+        this.configureApp();
         this.handleRoutes();
         this.handleSocketConnection();
+      }
+      private configureApp(): void {
+        this.app.use(express.static(path.join(__dirname, "../public")));
       }
       
       private initialize(): void {
